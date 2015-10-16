@@ -93,6 +93,7 @@
     "eslint-loader": "^1.0.0",
     "eslint-plugin-import": "^0.8.0",
     "eslint-plugin-react": "^3.5.0",
+    "expect": "^1.12.2",
     "extract-text-webpack-plugin": "^0.8.2",
     "json-loader": "^0.5.3",
     "karma": "^0.13.10",
