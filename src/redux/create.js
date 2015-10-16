@@ -1,8 +1,9 @@
 import { createStore as _createStore, applyMiddleware, compose } from 'redux';
 import transitionMiddleware from './middleware/transitionMiddleware';
+import apiMiddleware from './middleware/apiMiddleware';
 
 export default function createStore(reduxReactRouter, getRoutes, createHistory, client, data) {
-  const middleware = [transitionMiddleware];
+  const middleware = [transitionMiddleware, apiMiddleware];
 
   let finalCreateStore;
   if (__DEVELOPMENT__ && __CLIENT__ && __DEVTOOLS__) {

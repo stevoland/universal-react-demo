@@ -81,7 +81,7 @@ describe('apiMiddleware', () => {
       dispatch(action);
 
       expect(global.fetch)
-        .toHaveBeenCalledWith('http://api.github.com/path');
+        .toHaveBeenCalledWith('https://api.github.com/path');
     });
 
     it('should handle failure', (done) => {
