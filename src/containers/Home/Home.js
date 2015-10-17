@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router';
 import { isLoaded as isRepoListLoaded, load as loadRepoList } from 'redux/modules/repoList';
 
 export class PlainHome extends Component {
@@ -21,7 +22,7 @@ export class PlainHome extends Component {
   renderItem(item, index) {
     return (
       <li key={index}>
-        {item.name}
+        <Link to={`/repos/${item.name}`}>{item.name}</Link>
       </li>
     );
   }

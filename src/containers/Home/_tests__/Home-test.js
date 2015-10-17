@@ -2,6 +2,8 @@ import React from 'react';
 import { createRenderer } from 'react-addons-test-utils';
 import expect from 'expect';
 
+import { Link } from 'react-router';
+
 import { PlainHome as Home } from '../Home';
 
 describe('Home', () => {
@@ -42,8 +44,8 @@ describe('Home', () => {
     expect(renderer.getRenderOutput().props.children)
       .toEqual(
         <ul>
-          <li key={0}>repo1</li>
-          <li key={1}>repo2</li>
+          <li key={0}><Link to="/repos/repo1">repo1</Link></li>
+          <li key={1}><Link to="/repos/repo2">repo2</Link></li>
         </ul>
       );
   });
