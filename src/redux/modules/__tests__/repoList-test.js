@@ -1,7 +1,7 @@
 import expect from 'expect';
-import reducer, { LOAD, LOAD_SUCCESS, LOAD_FAIL } from '../user';
+import reducer, { LOAD, LOAD_SUCCESS, LOAD_FAIL } from '../repoList';
 
-describe('user', () => {
+describe('repoList', () => {
   describe('reducer', () => {
     const initialState = {
       original: true
@@ -28,11 +28,12 @@ describe('user', () => {
         type: LOAD_SUCCESS,
         response: {
           entities: {
-            users: {
-              gaearon: {name: 'name'}
+            repos: {
+              repo1: {name: 'name1'},
+              repo2: {name: 'name2'}
             }
           },
-          result: 'gaearon'
+          result: ['repo1', 'repo2']
         }
       }))
         .toEqual({
@@ -40,7 +41,10 @@ describe('user', () => {
           loading: false,
           loaded: true,
           error: false,
-          data: {name: 'name'}
+          items: [
+            {name: 'name1'},
+            {name: 'name2'}
+          ]
         })
         .toNotBe(initialState);
     });
@@ -55,7 +59,7 @@ describe('user', () => {
           loading: false,
           loaded: false,
           error: 'error',
-          data: null
+          items: []
         })
         .toNotBe(initialState);
     });

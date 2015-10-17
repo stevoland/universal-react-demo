@@ -1,8 +1,8 @@
 import { CALL_API, Schemas } from '../middleware/apiMiddleware';
 
-export const LOAD = 'user/LOAD';
-export const LOAD_SUCCESS = 'user/LOAD_SUCCESS';
-export const LOAD_FAIL = 'user/LOAD_FAIL';
+export const LOAD = 'repoList/LOAD';
+export const LOAD_SUCCESS = 'repoList/LOAD_SUCCESS';
+export const LOAD_FAIL = 'repoList/LOAD_FAIL';
 
 const initialState = {
   loaded: false
@@ -21,7 +21,7 @@ export default function reducer(state = initialState, action = {}) {
         loading: false,
         loaded: true,
         error: false,
-        data: action.response.entities.users[action.response.result]
+        items: action.response.result.map((id) => action.response.entities.repos[id])
       };
     case LOAD_FAIL:
       return {
@@ -29,15 +29,15 @@ export default function reducer(state = initialState, action = {}) {
         loading: false,
         loaded: false,
         error: action.error,
-        data: null,
+        items: []
       };
     default:
       return state;
   }
 }
 
-export function isLoaded(globalState) {
-  return globalState.user && globalState.user.loaded;
+export function isLoaded(globalState, username) {
+  return globalState.repoList && globalState.repoList.loaded && (globalState.user.id === username);
 }
 
 export function load(username) {
@@ -45,8 +45,8 @@ export function load(username) {
     type: LOAD,
     [CALL_API]: {
       types: [LOAD, LOAD_SUCCESS, LOAD_FAIL],
-      endpoint: `users/${username}`,
-      schema: Schemas.USER
+      endpoint: `users/${username}/repos?sort=updated`,
+      schema: Schemas.REPO_ARRAY
     }
   };
 }

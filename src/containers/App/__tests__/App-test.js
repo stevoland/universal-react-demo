@@ -13,7 +13,7 @@ describe('App', () => {
     PlainApp.fetchData(getState, dispatch)
       .then(() => {
         expect(dispatch)
-          .toHaveBeenCalledWith(loadUser('gaeron'));
+          .toHaveBeenCalledWith(loadUser('gaearon'));
       })
       .then(done);
   });
@@ -22,8 +22,7 @@ describe('App', () => {
     const getState = () => ({
       user: {
         loaded: true,
-        username: 'gaearon',
-        name: 'User name'
+        username: 'gaearon'
       }
     });
     const dispatch = expect.createSpy().andCall(() => {

@@ -30,7 +30,7 @@ export class PlainApp extends Component {
 
   render() {
     const styles = require('./App.scss');
-    const { name } = this.props.user;
+    const { name } = this.props.user.data;
 
     return (
       <div className={styles.App}>
