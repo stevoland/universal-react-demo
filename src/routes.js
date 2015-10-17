@@ -11,7 +11,7 @@ export default (store) => {
   return (
     <Route path="/" component={App}>
       <IndexRoute component={Home}/>
-      <Route path="repos/:name" component={Repo} />
+      <Route path="repos/:userName/:repoName" component={Repo} />
       <Route path="*" component={NotFound} status={404} />
     </Route>
   );

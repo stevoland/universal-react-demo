@@ -35,8 +35,8 @@ describe('Home', () => {
         loading: false,
         loaded: true,
         items: [
-          {name: 'repo1'},
-          {name: 'repo2'}
+          {name: 'repo1', fullName: 'user/repo1'},
+          {name: 'repo2', fullName: 'user/repo2'}
         ]
       }} />
     );
@@ -44,8 +44,8 @@ describe('Home', () => {
     expect(renderer.getRenderOutput().props.children)
       .toEqual(
         <ul>
-          <li key={0}><Link to="/repos/repo1">repo1</Link></li>
-          <li key={1}><Link to="/repos/repo2">repo2</Link></li>
+          <li key={0}><Link to="/repos/user/repo1">repo1</Link></li>
+          <li key={1}><Link to="/repos/user/repo2">repo2</Link></li>
         </ul>
       );
   });

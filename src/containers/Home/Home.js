@@ -22,7 +22,7 @@ export class PlainHome extends Component {
   renderItem(item, index) {
     return (
       <li key={index}>
-        <Link to={`/repos/${item.name}`}>{item.name}</Link>
+        <Link to={`/repos/${item.fullName}`}>{item.name}</Link>
       </li>
     );
   }
