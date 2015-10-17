@@ -8,7 +8,7 @@ export class PlainHome extends Component {
   };
 
   static fetchDataDeferred(getState, dispatch) {
-    const username = getState().user.id;
+    const username = getState().user.data.login;
 
     const promises = [];
     if (!isRepoListLoaded(getState(), username)) {
@@ -32,11 +32,9 @@ export class PlainHome extends Component {
     let content;
 
     if (loaded) {
-      if (error) {
-        content = <p>There was a problem</p>;
-      } else {
-        content = <ul>{items.map(this.renderItem)}</ul>;
-      }
+      content = <ul>{items.map(this.renderItem)}</ul>;
+    } else if (error) {
+      content = <p>There was a problem</p>;
     }
 
     return (
