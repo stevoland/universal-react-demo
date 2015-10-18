@@ -1,3 +1,18 @@
-.Home {
+.Repo {
   display: block;
+
+  h2 {
+    color: #87a655;
+    margin-right: 145px;
+  }
+}
+
+.Header {
+  position: relative;
+}
+
+.Stats {
+  position: absolute;
+  top: 0;
+  right: 0;
 }

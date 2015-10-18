@@ -5,7 +5,7 @@ export const LOAD_SUCCESS = 'repo/LOAD_SUCCESS';
 export const LOAD_FAIL = 'repo/LOAD_FAIL';
 
 const initialState = {
-  loaded: false
+  loaded: true
 };
 
 export default function reducer(state = initialState, action = {}) {
@@ -13,6 +13,7 @@ export default function reducer(state = initialState, action = {}) {
     case LOAD:
       return {
         ...state,
+        loaded: false,
         loading: true
       };
     case LOAD_SUCCESS:

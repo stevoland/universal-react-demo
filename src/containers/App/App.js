@@ -6,6 +6,8 @@ import { Header } from '../../components';
 
 const USERNAME = 'gaearon';
 
+const styles = require('./App.scss');
+
 const meta = {
   title: 'Repo browser',
   meta: {
@@ -29,17 +31,16 @@ export class PlainApp extends Component {
   }
 
   render() {
-    const styles = require('./App.scss');
-    const { name } = this.props.user.data;
+    const { name, avatarUrl } = this.props.user.data;
 
     return (
       <div className={styles.App}>
         <DocumentMeta {...meta}/>
+        <div className={styles.Header}>
+          <Header fullName={name} avatar={avatarUrl} />
+        </div>
         <div className={styles.AppContent}>
-          <Header fullName={name} />
-          <div>
-            {this.props.children}
-          </div>
+          {this.props.children}
         </div>
       </div>
     );

@@ -1,5 +1,42 @@
-//
-
 .Header {
+  @extend .clearfix;
+  position: relative;
+  background: #87a655;
+  margin: 0 auto;
+  max-width: 37em;
+  padding: 1em;
+  color: #fff;
 
+  h1 {
+    margin: 0;
+    padding-right: 200px;
+    padding-left: 30px;
+    float: left;
+    font-size: 1.2em;
+    background: url('../../theme/github.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+  }
+}
+
+.Profile {
+  position: absolute;
+  top: 14px;
+  right: 0;
+  bottom: 0;
+}
+
+.Avatar {
+  width: 33px;
+  height: 33px;
+  border-radius: 1px;
+  position: absolute;
+  left: -40px;
+  top: -4px;
+}
+
+.Name {
+  display: block;
+  margin-top: 0.2em;
 }

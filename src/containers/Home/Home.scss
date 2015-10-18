@@ -1,3 +1,31 @@
 .Home {
   display: block;
 }
+
+.List {
+  list-style: none;
+  padding: 0;
+  border-bottom: 1px solid #f3f3ed;
+}
+
+.Item {
+  position: relative;
+  overflow: hidden;
+  padding: 0;
+  border-top: 1px solid #f3f3ed;
+
+  a {
+    position: relative;
+    z-index: 2;
+    display: block;
+    padding: 0.5em 145px 0.5em 0;
+  }
+}
+
+.Stats {
+  position: absolute;
+  z-index: 1;
+  top: 8px;
+  right: 0;
+  font-size: 0.8em
+}

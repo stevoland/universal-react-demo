@@ -1,11 +1,14 @@
 import React, { Component, PropTypes } from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
+import { TimeAgo, Stats } from '../../components';
 import { isLoaded as isRepoLoaded, load as loadRepo } from 'redux/modules/repo';
 
 function getFullRepoName(userName, repoName) {
   return `${userName}/${repoName}`;
 }
+
+const styles = require('./Repo.scss');
 
 export class PlainRepo extends Component {
   static propTypes = {
@@ -24,15 +27,20 @@ export class PlainRepo extends Component {
   }
 
   render() {
-    const styles = require('./Repo.scss');
-
     const { loaded, error, data } = this.props.repo;
     let content;
 
     if (loaded) {
       content = (
-        <div key={1}>
-          <h2>{data.name}</h2>
+        <div>
+          <div className={styles.Header}>
+            <h2>
+              {data.name}
+              <TimeAgo prefix="Last updated" value={data.updatedAt} />
+            </h2>
+            <Stats className={styles.Stats}
+              stars={data.stargazersCount} watchers={data.watchersCount} forks={data.forksCount} />
+          </div>
           <p>{data.description}</p>
         </div>
       );
@@ -43,8 +51,8 @@ export class PlainRepo extends Component {
     return (
       <div className={styles.Repo}>
         {content}
-        <p key={2}>
-          <Link to="/">Go back</Link>
+        <p>
+          <Link to="/">Back to list</Link>
         </p>
       </div>
     );

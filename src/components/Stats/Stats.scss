@@ -1,0 +1,36 @@
+.Stats {
+  color: #c9c9c3;
+  margin: 0;
+}
+
+.count {
+  margin: 0;
+  float: left;
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.Stars {
+  @extend .count;
+  background-image: url('./star.svg');
+  padding-left: 1.5em;
+  margin-right: 10px;
+}
+
+.Watchers {
+  @extend .count;
+  background-image: url('./watch.svg');
+  padding-left: 1.7em;
+  background-size: 20px;
+  background-position: 0 0.2em;
+  margin-right: 10px;
+}
+
+.Forks {
+  @extend .count;
+  background-image: url('./fork.svg');
+  padding-left: 0.9em;
+}
+
+//

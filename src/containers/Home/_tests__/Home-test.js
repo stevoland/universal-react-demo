@@ -4,7 +4,8 @@ import expect from 'expect';
 
 import { Link } from 'react-router';
 
-import { PlainHome as Home } from '../Home';
+import { PlainHome as Home, styles } from '../Home';
+import { Stats } from '../../../components';
 
 describe('Home', () => {
   let renderer;
@@ -35,17 +36,35 @@ describe('Home', () => {
         loading: false,
         loaded: true,
         items: [
-          {name: 'repo1', fullName: 'user/repo1'},
-          {name: 'repo2', fullName: 'user/repo2'}
+          {
+            name: 'repo1',
+            fullName: 'user/repo1',
+            stargazersCount: 1,
+            watchersCount: 2,
+            forksCount: 3
+          },
+          {
+            name: 'repo2',
+            fullName: 'user/repo2',
+            stargazersCount: 4,
+            watchersCount: 5,
+            forksCount: 6
+          }
         ]
       }} />
     );
 
     expect(renderer.getRenderOutput().props.children)
       .toEqual(
-        <ul>
-          <li key={0}><Link to="/repos/user/repo1">repo1</Link></li>
-          <li key={1}><Link to="/repos/user/repo2">repo2</Link></li>
+        <ul className={styles.List}>
+          <li className={styles.Item} key={0}>
+            <Link to="/repos/user/repo1">repo1</Link>
+            <Stats className={styles.Stats} stars={1} watchers={2} forks={3} />
+          </li>
+          <li className={styles.Item} key={1}>
+            <Link to="/repos/user/repo2">repo2</Link>
+            <Stats className={styles.Stats} stars={4} watchers={5} forks={6} />
+          </li>
         </ul>
       );
   });

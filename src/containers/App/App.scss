@@ -1,11 +1,16 @@
-body {
-  font-family: "Helvetica Neue", Helvetica, sans-serif;
-}
+@import '../../theme/_base.scss';
 
 .App {
-
 }
 
 .AppContent {
+  margin: 0 auto;
+  padding: 1em;
+  max-width: 37em;
+  background: #fcfcfc;
+  border-top: 2px solid #dbdfd5;
+}
 
+.Header {
+  background: #95b85e;
 }
