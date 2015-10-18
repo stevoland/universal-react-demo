@@ -12,7 +12,7 @@ npm run test
 ```
 npm install
 npm build
-npm start
+PORT=8080 npm start
 
 Open: localhost:8080
 ```
