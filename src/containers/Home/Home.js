@@ -43,6 +43,7 @@ export class PlainHome extends Component {
         <ul className={styles.List}>
           {items
             .sort(popularityComparator)
+            .slice(0, 20)
             .map(this.renderItem)}
         </ul>
       );
