@@ -3,10 +3,10 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import { Stats } from '../../components';
 import { isLoaded as isRepoListLoaded, load as loadRepoList } from 'redux/modules/repoList';
+import popularityComparator from '../../helpers/popularityComparator';
 
 // Export for or testing
 export const styles = require('./Home.scss');
-
 
 export class PlainHome extends Component {
   static propTypes = {
@@ -39,7 +39,13 @@ export class PlainHome extends Component {
     let content;
 
     if (loaded) {
-      content = <ul className={styles.List}>{items.map(this.renderItem)}</ul>;
+      content = (
+        <ul className={styles.List}>
+          {items
+            .sort(popularityComparator)
+            .map(this.renderItem)}
+        </ul>
+      );
     } else if (error) {
       content = <p>There was a problem</p>;
     }

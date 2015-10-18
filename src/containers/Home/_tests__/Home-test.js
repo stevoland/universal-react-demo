@@ -58,12 +58,12 @@ describe('Home', () => {
       .toEqual(
         <ul className={styles.List}>
           <li className={styles.Item} key={0}>
-            <Link to="/repos/user/repo1">repo1</Link>
-            <Stats className={styles.Stats} stars={1} watchers={2} forks={3} />
-          </li>
-          <li className={styles.Item} key={1}>
             <Link to="/repos/user/repo2">repo2</Link>
             <Stats className={styles.Stats} stars={4} watchers={5} forks={6} />
+          </li>
+          <li className={styles.Item} key={1}>
+            <Link to="/repos/user/repo1">repo1</Link>
+            <Stats className={styles.Stats} stars={1} watchers={2} forks={3} />
           </li>
         </ul>
       );
